@@ -535,6 +535,275 @@
             border: 1px dashed rgba(244, 63, 94, 0.4);
             display: inline-block;
         }
+
+        /* OTIMIZAÇÃO MOBILE (TABLETS E SMARTPHONES) */
+        @media (max-width: 768px) {
+            body {
+                padding: 16px 10px;
+            }
+
+            .elaborate-header {
+                padding: 24px 16px 20px 16px;
+                border-radius: 18px;
+                margin-bottom: 22px;
+            }
+
+            .biohazard-emblem {
+                width: 96px;
+                height: 96px;
+            }
+
+            .status-badge {
+                font-size: 10.5px;
+                padding: 5px 14px;
+                letter-spacing: 1px;
+            }
+
+            .brand-zone h1 {
+                font-size: clamp(24px, 7.5vw, 34px);
+                letter-spacing: 1.8px;
+            }
+
+            .brand-zone p {
+                font-size: 13px;
+            }
+
+            .global-progress-box {
+                padding: 16px 14px;
+                margin: 20px 0;
+            }
+
+            .progress-title {
+                font-size: 13px;
+            }
+
+            .progress-stats {
+                font-size: 12.5px;
+            }
+
+            .progress-stats strong.score-val,
+            .progress-stats strong.target-val {
+                font-size: 15px;
+            }
+
+            .quick-metrics {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .metric-item {
+                padding: 14px;
+            }
+
+            .metric-value {
+                font-size: 20px;
+            }
+
+            /* Pódio reordenado no mobile: Ouro -> Prata -> Bronze */
+            .podium-section {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                margin-bottom: 24px;
+            }
+
+            .podium-card {
+                padding: 18px 16px;
+                border-radius: 16px;
+            }
+
+            .podium-card.gold { order: 1; }
+            .podium-card.silver { order: 2; }
+            .podium-card.bronze { order: 3; }
+
+            .podium-name {
+                font-size: 20px;
+            }
+
+            .podium-score {
+                font-size: 19px;
+            }
+
+            /* Transformação da tabela em cards responsivos sem scroll horizontal */
+            .table-container {
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                overflow: visible;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+                min-width: 0;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tbody tr {
+                background: #0f0f14;
+                border: 1px solid rgba(168, 85, 247, 0.35);
+                border-radius: 16px;
+                margin-bottom: 14px;
+                padding: 14px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+                position: relative;
+            }
+
+            tbody tr.rank-gold {
+                border-color: rgba(250, 204, 21, 0.65);
+                background: linear-gradient(180deg, rgba(250, 204, 21, 0.08) 0%, #0f0f14 100%);
+            }
+
+            tbody tr.rank-silver {
+                border-color: rgba(203, 213, 225, 0.55);
+                background: linear-gradient(180deg, rgba(203, 213, 225, 0.06) 0%, #0f0f14 100%);
+            }
+
+            tbody tr.rank-bronze {
+                border-color: rgba(217, 119, 6, 0.55);
+                background: linear-gradient(180deg, rgba(217, 119, 6, 0.06) 0%, #0f0f14 100%);
+            }
+
+            td {
+                border: none;
+                padding: 0;
+                text-align: left;
+            }
+
+            /* Topo do Card: Posição + Nome + Status */
+            td:nth-child(1) {
+                grid-column: 1 / -1;
+                display: inline-flex;
+                align-items: center;
+                font-size: 13px;
+                color: #a1a1aa;
+            }
+
+            td:nth-child(1)::before {
+                content: "POS #";
+                font-size: 11px;
+                font-weight: 800;
+                color: #c084fc;
+                margin-right: 2px;
+            }
+
+            td.player-name {
+                grid-column: 1 / -1;
+                padding-left: 0;
+                font-size: 17px;
+                padding-bottom: 8px;
+                border-bottom: 1px solid rgba(168, 85, 247, 0.18);
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            /* Status posicionado no canto superior direito do card */
+            td:nth-child(7) {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                width: auto;
+            }
+
+            /* Métricas internas do card em grade 2x2 */
+            td:nth-child(3),
+            td:nth-child(4),
+            td:nth-child(5),
+            td:nth-child(6) {
+                background: rgba(5, 5, 8, 0.65);
+                border: 1px solid rgba(168, 85, 247, 0.16);
+                border-radius: 10px;
+                padding: 8px 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            td:nth-child(3)::before {
+                content: "PODER";
+                font-size: 10px;
+                font-weight: 800;
+                color: #a1a1aa;
+                letter-spacing: 0.6px;
+            }
+
+            td:nth-child(4)::before {
+                content: "PONTOS SEMANAIS";
+                font-size: 10px;
+                font-weight: 800;
+                color: #a1a1aa;
+                letter-spacing: 0.6px;
+            }
+
+            td:nth-child(5)::before {
+                content: "META INDIV.";
+                font-size: 10px;
+                font-weight: 800;
+                color: #a1a1aa;
+                letter-spacing: 0.6px;
+            }
+
+            td:nth-child(6)::before {
+                content: "PROGRESSO";
+                font-size: 10px;
+                font-weight: 800;
+                color: #a1a1aa;
+                letter-spacing: 0.6px;
+            }
+
+            .player-progress-wrapper {
+                justify-content: space-between;
+                width: 100%;
+                gap: 6px;
+            }
+
+            .player-progress-container {
+                flex: 1;
+                width: auto;
+            }
+
+            .pct-text {
+                min-width: auto;
+                font-size: 11.5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px 8px;
+            }
+
+            .elaborate-header {
+                padding: 20px 12px 18px 12px;
+            }
+
+            .brand-zone h1 {
+                font-size: clamp(21px, 7.2vw, 28px);
+                letter-spacing: 1px;
+            }
+
+            .status-completed,
+            .status-pending,
+            .status-dead {
+                font-size: 10.5px;
+                padding: 4px 8px;
+            }
+
+            td.player-name {
+                font-size: 15.5px;
+            }
+
+            .weekly-highlight {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -542,9 +811,9 @@
 
     <!-- CABEÇALHO -->
     <div class="elaborate-header">
-        <!-- EMBLEMA SVG NATIVO BIOHAZARD ROXO E VERDE TÓXICO -->
+        <!-- EMBLEMA SVG NATIVO DE RADIAÇÃO ROXO E VERDE TÓXICO -->
         <div class="header-logo-container">
-            <svg class="biohazard-emblem" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Emblema Risco Biológico 100AGROTÓXICOS">
+            <svg class="biohazard-emblem" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Emblema Radiação 100AGROTÓXICOS">
                 <defs>
                     <linearGradient id="toxicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stop-color="#c084fc" />
@@ -567,29 +836,29 @@
                 <polygon points="100,8 182,54 182,146 100,192 18,146 18,54" fill="#090710" stroke="url(#ringGrad)" stroke-width="5" />
                 <polygon points="100,18 173,59 173,141 100,182 27,141 27,59" fill="url(#coreGlow)" stroke="#7e22ce" stroke-width="1.5" stroke-dasharray="6 4" />
 
-                <!-- Anel Interno -->
-                <circle cx="100" cy="102" r="34" fill="none" stroke="url(#toxicGrad)" stroke-width="6" />
+                <!-- Anel Circular de Contenção -->
+                <circle cx="100" cy="100" r="64" fill="none" stroke="url(#ringGrad)" stroke-width="3" opacity="0.85" />
 
-                <!-- Três Crescents Clássicos Biohazard -->
-                <!-- Topo -->
-                <path d="M 100,32 C 122,32 138,48 138,68 C 138,83 128,95 114,99 C 120,91 122,80 118,70 C 113,59 100,54 88,59 C 78,63 73,74 75,85 C 65,78 62,64 67,52 C 73,39 86,32 100,32 Z" fill="url(#toxicGrad)" />
-                <!-- Inferior Direito -->
-                <path d="M 159,134 C 148,153 126,159 109,149 C 96,142 90,127 94,113 C 98,122 106,129 117,131 C 129,133 140,124 142,112 C 144,101 137,91 127,87 C 138,82 152,86 159,97 C 167,109 166,123 159,134 Z" fill="url(#toxicGrad)" />
-                <!-- Inferior Esquerdo -->
-                <path d="M 41,134 C 34,123 33,109 41,97 C 48,86 62,82 73,87 C 63,91 56,101 58,112 C 60,124 71,133 83,131 C 94,129 102,122 106,113 C 110,127 104,142 91,149 C 74,159 52,153 41,134 Z" fill="url(#toxicGrad)" />
+                <!-- Três Pás Clássicas do Símbolo de Radiação (Trefoil Radioativo - 60 graus cada) -->
+                <!-- Pá Superior (240° a 300°) -->
+                <path d="M 88,79.2 L 71,49.8 A 58,58 0 0,1 129,49.8 L 112,79.2 A 24,24 0 0,0 88,79.2 Z" fill="url(#toxicGrad)" />
+                <!-- Pá Inferior Direita (0° a 60°) -->
+                <path d="M 124,100 L 158,100 A 58,58 0 0,1 129,150.2 L 112,120.8 A 24,24 0 0,0 124,100 Z" fill="url(#toxicGrad)" />
+                <!-- Pá Inferior Esquerda (120° a 180°) -->
+                <path d="M 88,120.8 L 71,150.2 A 58,58 0 0,1 42,100 L 76,100 A 24,24 0 0,0 88,120.8 Z" fill="url(#toxicGrad)" />
 
-                <!-- Núcleo Central Tóxico -->
-                <circle cx="100" cy="102" r="11" fill="#050508" stroke="#4ade80" stroke-width="3.5" />
-                <circle cx="100" cy="102" r="4" fill="#4ade80" />
+                <!-- Núcleo Central Radioativo -->
+                <circle cx="100" cy="100" r="14" fill="#050508" stroke="#4ade80" stroke-width="3" />
+                <circle cx="100" cy="100" r="8" fill="url(#toxicGrad)" />
 
-                <!-- Gotas Tóxicas Decorativas -->
+                <!-- Pontos Decorativos nos Vértices -->
                 <circle cx="100" cy="23" r="3" fill="#4ade80" />
                 <circle cx="166" cy="141" r="3" fill="#c084fc" />
                 <circle cx="34" cy="141" r="3" fill="#c084fc" />
             </svg>
         </div>
 
-        <div class="status-badge"><span class="dot">●</span> Sincronização Concluída (12/11/26 08:30)</div>
+        <div class="status-badge"><span class="dot">●</span> Sincronização Concluída (12/11/26 08:39)</div>
 
         <div class="brand-zone">
             <h1>100AGROTÓXICOS</h1>
