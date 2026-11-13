@@ -292,7 +292,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-bottom: 34px;
+            margin-bottom: 30px;
             align-items: stretch;
         }
 
@@ -374,6 +374,308 @@
             color: #c084fc;
             font-weight: 600;
             margin-top: 6px;
+        }
+
+        /* BARRA DE FILTROS E ORDENAÇÃO (DESKTOP + MOBILE TOUCH-FRIENDLY) */
+        .filters-panel {
+            background: linear-gradient(180deg, rgba(20, 14, 34, 0.94) 0%, rgba(12, 10, 19, 0.98) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.42);
+            border-radius: 18px;
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 0 24px rgba(126, 34, 206, 0.16), 0 12px 28px rgba(0, 0, 0, 0.65);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .filters-top-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #c084fc;
+            font-size: 15px;
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            background: #07060c;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            border-radius: 12px;
+            padding: 12px 38px 12px 40px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input::placeholder {
+            color: #71717a;
+        }
+
+        .search-input:focus {
+            border-color: #4ade80;
+            box-shadow: 0 0 14px rgba(74, 222, 128, 0.25);
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(168, 85, 247, 0.2);
+            border: none;
+            color: #e4e4e7;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .clear-search-btn.visible {
+            display: flex;
+        }
+
+        .clear-search-btn:hover {
+            background: rgba(239, 68, 68, 0.45);
+        }
+
+        .sort-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sort-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #a1a1aa;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+        }
+
+        .sort-select {
+            background: #07060c;
+            border: 1px solid rgba(168, 85, 247, 0.45);
+            border-radius: 12px;
+            padding: 12px 34px 12px 14px;
+            color: #e4e4e7;
+            font-size: 13.5px;
+            font-weight: 700;
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c084fc' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .sort-select:focus {
+            border-color: #4ade80;
+            box-shadow: 0 0 12px rgba(74, 222, 128, 0.22);
+        }
+
+        .filters-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Pílulas de Status com Scroll Horizontal Touch-Friendly no Mobile */
+        .status-pills {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 2px;
+        }
+
+        .status-pills::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-pill {
+            background: #09080f;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            color: #d4d4d8;
+            padding: 9px 14px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .filter-pill:hover {
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.14);
+        }
+
+        .filter-pill .pill-count {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 7px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #a1a1aa;
+        }
+
+        .filter-pill.active {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.28), rgba(74, 222, 128, 0.2));
+            border-color: #4ade80;
+            color: #ffffff;
+            box-shadow: 0 0 14px rgba(74, 222, 128, 0.25);
+        }
+
+        .filter-pill.active .pill-count {
+            background: #4ade80;
+            color: #050508;
+        }
+
+        .filter-pill[data-status="completed"].active {
+            border-color: #4ade80;
+            background: rgba(34, 197, 94, 0.22);
+        }
+
+        .filter-pill[data-status="pending"].active {
+            border-color: #c084fc;
+            background: rgba(168, 85, 247, 0.26);
+        }
+
+        .filter-pill[data-status="pending"].active .pill-count {
+            background: #c084fc;
+            color: #050508;
+        }
+
+        .filter-pill[data-status="dead"].active {
+            border-color: #f43f5e;
+            background: rgba(244, 63, 94, 0.22);
+        }
+
+        .filter-pill[data-status="dead"].active .pill-count {
+            background: #f43f5e;
+            color: #ffffff;
+        }
+
+        .results-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .results-counter {
+            font-size: 12.5px;
+            color: #a1a1aa;
+            font-weight: 600;
+        }
+
+        .results-counter strong {
+            color: #4ade80;
+            font-weight: 800;
+        }
+
+        .reset-filters-btn {
+            background: rgba(244, 63, 94, 0.14);
+            border: 1px solid rgba(244, 63, 94, 0.45);
+            color: #fda4af;
+            padding: 7px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s ease;
+        }
+
+        .reset-filters-btn.visible {
+            display: inline-flex;
+        }
+
+        .reset-filters-btn:hover {
+            background: rgba(244, 63, 94, 0.28);
+            color: #ffffff;
+        }
+
+        /* MENSAGEM DE NENHUM RESULTADO */
+        .empty-state {
+            display: none;
+            background: #0f0f14;
+            border: 1px dashed rgba(168, 85, 247, 0.45);
+            border-radius: 18px;
+            padding: 36px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .empty-state.visible {
+            display: block;
+        }
+
+        .empty-state-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state-title {
+            font-size: 17px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .empty-state-desc {
+            font-size: 13.5px;
+            color: #a1a1aa;
+            margin-bottom: 16px;
+        }
+
+        .empty-state-btn {
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
+            border: 1px solid #c084fc;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
         }
 
         /* TABELA DE RESULTADOS */
@@ -604,7 +906,7 @@
             .podium-section {
                 grid-template-columns: 1fr;
                 gap: 14px;
-                margin-bottom: 24px;
+                margin-bottom: 22px;
             }
 
             .podium-card {
@@ -622,6 +924,52 @@
 
             .podium-score {
                 font-size: 19px;
+            }
+
+            /* Filtros responsivos no mobile */
+            .filters-panel {
+                padding: 14px 12px;
+                border-radius: 16px;
+                gap: 12px;
+            }
+
+            .filters-top-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .search-input {
+                font-size: 16px; /* Evita zoom automático no iOS */
+                padding: 11px 36px 11px 38px;
+            }
+
+            .sort-wrapper {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .sort-select {
+                flex: 1;
+                font-size: 14px;
+                padding: 11px 32px 11px 12px;
+            }
+
+            .status-pills {
+                width: 100%;
+                padding-bottom: 4px;
+            }
+
+            .filter-pill {
+                padding: 9px 13px;
+                font-size: 12px;
+            }
+
+            .results-meta {
+                width: 100%;
+                justify-content: space-between;
+                margin-left: 0;
+                padding-top: 4px;
+                border-top: 1px solid rgba(168, 85, 247, 0.16);
             }
 
             /* Transformação da tabela em cards responsivos sem scroll horizontal */
@@ -841,11 +1189,8 @@
                 <circle cx="100" cy="100" r="64" fill="none" stroke="url(#ringGrad)" stroke-width="3" opacity="0.85" />
 
                 <!-- Três Pás Clássicas do Símbolo de Radiação (Trefoil Radioativo - 60 graus cada) -->
-                <!-- Pá Superior (240° a 300°) -->
                 <path d="M 88,79.2 L 71,49.8 A 58,58 0 0,1 129,49.8 L 112,79.2 A 24,24 0 0,0 88,79.2 Z" fill="url(#toxicGrad)" />
-                <!-- Pá Inferior Direita (0° a 60°) -->
                 <path d="M 124,100 L 158,100 A 58,58 0 0,1 129,150.2 L 112,120.8 A 24,24 0 0,0 124,100 Z" fill="url(#toxicGrad)" />
-                <!-- Pá Inferior Esquerda (120° a 180°) -->
                 <path d="M 88,120.8 L 71,150.2 A 58,58 0 0,1 42,100 L 76,100 A 24,24 0 0,0 88,120.8 Z" fill="url(#toxicGrad)" />
 
                 <!-- Núcleo Central Radioativo -->
@@ -897,7 +1242,7 @@
         </div>
     </div>
 
-    <!-- PÓDIO TOP 3 (Desktop: 2º Esq | 1º Centro | 3º Dir; Mobile: 1º | 2º | 3º) -->
+    <!-- PÓDIO TOP 3 -->
     <div class="podium-section">
         <div class="podium-card silver">
             <div class="podium-rank">🥈 2º Lugar Semanal</div>
@@ -919,8 +1264,65 @@
         </div>
     </div>
 
+    <!-- BARRA DE FILTROS E ORDENAÇÃO (DESKTOP + MOBILE) -->
+    <div class="filters-panel" role="region" aria-label="Filtros e Ordenação de Jogadores">
+        <div class="filters-top-row">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input
+                    type="text"
+                    id="playerSearchInput"
+                    class="search-input"
+                    placeholder="Buscar jogador por nome ou patente (ex: Naldo, Líder)..."
+                    autocomplete="off"
+                />
+                <button type="button" id="clearSearchBtn" class="clear-search-btn" title="Limpar busca" aria-label="Limpar busca">✕</button>
+            </div>
+
+            <div class="sort-wrapper">
+                <label for="sortSelect" class="sort-label">Ordenar:</label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="points-desc">Pontos Semanais (Maior)</option>
+                    <option value="progress-desc">Progresso % (Maior)</option>
+                    <option value="power-desc">Poder % (Maior)</option>
+                    <option value="progress-asc">Menor Progresso (Atenção)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filters-bottom-row">
+            <div class="status-pills" id="statusPills" role="tablist" aria-label="Filtrar por status">
+                <button type="button" class="filter-pill active" data-status="all">
+                    Todos <span class="pill-count" id="countAll">29</span>
+                </button>
+                <button type="button" class="filter-pill" data-status="completed">
+                    ⚡ Meta Batida <span class="pill-count" id="countCompleted">9</span>
+                </button>
+                <button type="button" class="filter-pill" data-status="pending">
+                    ⏳ Em Andamento <span class="pill-count" id="countPending">19</span>
+                </button>
+                <button type="button" class="filter-pill" data-status="dead">
+                    💀 Inativo <span class="pill-count" id="countDead">1</span>
+                </button>
+            </div>
+
+            <div class="results-meta">
+                <span class="results-counter">Exibindo <strong id="visibleCount">29</strong> de <strong>29</strong> jogadores</span>
+                <button type="button" id="resetFiltersBtn" class="reset-filters-btn">↺ Limpar Filtros</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ESTADO VAZIO QUANDO NENHUM JOGADOR CORRESPONDE AO FILTRO -->
+    <div id="emptyState" class="empty-state">
+        <div class="empty-state-icon">🧪</div>
+        <div class="empty-state-title">Nenhum jogador encontrado</div>
+        <div class="empty-state-desc">Não encontramos membros correspondentes ao filtro ou termo buscado.</div>
+        <button type="button" id="emptyResetBtn" class="empty-state-btn">Mostrar Todos os Jogadores</button>
+    </div>
+
     <!-- TABELA DE RESULTADOS (29 JOGADORES) -->
-    <div class="table-container">
+    <div class="table-container" id="tableContainer">
         <table>
             <thead>
                 <tr>
@@ -933,8 +1335,8 @@
                     <th>Status</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="rank-gold">
+            <tbody id="playersTableBody">
+                <tr class="rank-gold" data-rank="1" data-name="ozehgota lider" data-power="2557" data-points="1524404" data-progress="101.6" data-status="completed">
                     <td><strong>1</strong></td>
                     <td class="player-name">🥇 ozehgota <span class="badge-leader">Líder</span></td>
                     <td class="power">2557%</td>
@@ -950,7 +1352,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr class="rank-silver">
+                <tr class="rank-silver" data-rank="2" data-name="naldo tenente" data-power="2376" data-points="1497546" data-progress="115.2" data-status="completed">
                     <td><strong>2</strong></td>
                     <td class="player-name">🥈 Naldo <span class="badge-tenente">Tenente</span></td>
                     <td class="power">2376%</td>
@@ -966,7 +1368,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr class="rank-bronze">
+                <tr class="rank-bronze" data-rank="3" data-name="turcocps" data-power="2525" data-points="1427063" data-progress="95.1" data-status="pending">
                     <td><strong>3</strong></td>
                     <td class="player-name">🥉 Turcocps</td>
                     <td class="power">2525%</td>
@@ -982,7 +1384,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="4" data-name="pooch tenente" data-power="2026" data-points="1419909" data-progress="109.2" data-status="completed">
                     <td><strong>4</strong></td>
                     <td class="player-name">Pooch <span class="badge-tenente">Tenente</span></td>
                     <td class="power">2026%</td>
@@ -998,7 +1400,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="5" data-name="yubel" data-power="1899" data-points="1372047" data-progress="105.5" data-status="completed">
                     <td><strong>5</strong></td>
                     <td class="player-name">Yubel</td>
                     <td class="power">1899%</td>
@@ -1014,7 +1416,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="6" data-name="knziinfe knziinfé" data-power="1899" data-points="1343590" data-progress="103.4" data-status="completed">
                     <td><strong>6</strong></td>
                     <td class="player-name">KnziinFé</td>
                     <td class="power">1899%</td>
@@ -1030,7 +1432,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="7" data-name="tobymeudog" data-power="2028" data-points="1264773" data-progress="97.3" data-status="pending">
                     <td><strong>7</strong></td>
                     <td class="player-name">Tobymeudog</td>
                     <td class="power">2028%</td>
@@ -1046,7 +1448,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="8" data-name="ippo" data-power="2242" data-points="1248161" data-progress="96.0" data-status="pending">
                     <td><strong>8</strong></td>
                     <td class="player-name">Ippo</td>
                     <td class="power">2242%</td>
@@ -1062,7 +1464,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="9" data-name="downrush" data-power="1795" data-points="1225349" data-progress="102.1" data-status="completed">
                     <td><strong>9</strong></td>
                     <td class="player-name">DownRush</td>
                     <td class="power">1795%</td>
@@ -1078,7 +1480,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="10" data-name="victor" data-power="1857" data-points="1223432" data-progress="94.1" data-status="pending">
                     <td><strong>10</strong></td>
                     <td class="player-name">Victor</td>
                     <td class="power">1857%</td>
@@ -1094,7 +1496,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="11" data-name="crazydreams" data-power="1711" data-points="1212819" data-progress="101.1" data-status="completed">
                     <td><strong>11</strong></td>
                     <td class="player-name">CrazyDreams</td>
                     <td class="power">1711%</td>
@@ -1110,7 +1512,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="12" data-name="messias" data-power="1908" data-points="1209850" data-progress="93.1" data-status="pending">
                     <td><strong>12</strong></td>
                     <td class="player-name">Messias</td>
                     <td class="power">1908%</td>
@@ -1126,7 +1528,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="13" data-name="treifors" data-power="1688" data-points="1178811" data-progress="98.2" data-status="pending">
                     <td><strong>13</strong></td>
                     <td class="player-name">Treifors</td>
                     <td class="power">1688%</td>
@@ -1142,7 +1544,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="14" data-name="drdallas" data-power="2053" data-points="1099409" data-progress="84.6" data-status="pending">
                     <td><strong>14</strong></td>
                     <td class="player-name">DrDallas</td>
                     <td class="power">2053%</td>
@@ -1158,7 +1560,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="15" data-name="ohmyg" data-power="1884" data-points="1057227" data-progress="81.3" data-status="pending">
                     <td><strong>15</strong></td>
                     <td class="player-name">OHMYG</td>
                     <td class="power">1884%</td>
@@ -1174,7 +1576,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="16" data-name="oddin" data-power="1527" data-points="995817" data-progress="99.6" data-status="pending">
                     <td><strong>16</strong></td>
                     <td class="player-name">oddin</td>
                     <td class="power">1527%</td>
@@ -1190,7 +1592,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="17" data-name="srvovo" data-power="1429" data-points="892674" data-progress="99.2" data-status="pending">
                     <td><strong>17</strong></td>
                     <td class="player-name">SrVovo</td>
                     <td class="power">1429%</td>
@@ -1206,7 +1608,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="18" data-name="mohamedbr" data-power="1524" data-points="867162" data-progress="86.7" data-status="pending">
                     <td><strong>18</strong></td>
                     <td class="player-name">MohamedBr</td>
                     <td class="power">1524%</td>
@@ -1222,7 +1624,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="19" data-name="raposinha" data-power="1314" data-points="863966" data-progress="108.0" data-status="completed">
                     <td><strong>19</strong></td>
                     <td class="player-name">Raposinha</td>
                     <td class="power">1314%</td>
@@ -1238,7 +1640,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="20" data-name="anulado" data-power="1572" data-points="857940" data-progress="85.8" data-status="pending">
                     <td><strong>20</strong></td>
                     <td class="player-name">anulado</td>
                     <td class="power">1572%</td>
@@ -1254,7 +1656,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="21" data-name="goatcaka" data-power="1320" data-points="770530" data-progress="96.3" data-status="pending">
                     <td><strong>21</strong></td>
                     <td class="player-name">GoatCaka</td>
                     <td class="power">1320%</td>
@@ -1270,7 +1672,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="22" data-name="pucchbr" data-power="1506" data-points="709190" data-progress="70.9" data-status="pending">
                     <td><strong>22</strong></td>
                     <td class="player-name">PucchBR</td>
                     <td class="power">1506%</td>
@@ -1286,7 +1688,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="23" data-name="hiimazir" data-power="1721" data-points="707709" data-progress="59.0" data-status="pending">
                     <td><strong>23</strong></td>
                     <td class="player-name">HiimAzir</td>
                     <td class="power">1721%</td>
@@ -1302,7 +1704,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="24" data-name="thexgamer" data-power="1298" data-points="623936" data-progress="89.1" data-status="pending">
                     <td><strong>24</strong></td>
                     <td class="player-name">THEXGAMER</td>
                     <td class="power">1298%</td>
@@ -1318,7 +1720,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="25" data-name="vintequatrokc" data-power="1038" data-points="569776" data-progress="114.0" data-status="completed">
                     <td><strong>25</strong></td>
                     <td class="player-name">VinteQuatroKC</td>
                     <td class="power">1038%</td>
@@ -1334,7 +1736,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="26" data-name="warriorjr" data-power="803" data-points="393591" data-progress="98.4" data-status="pending">
                     <td><strong>26</strong></td>
                     <td class="player-name">WarriorJR</td>
                     <td class="power">803%</td>
@@ -1350,7 +1752,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="27" data-name="cusinho0" data-power="1531" data-points="366149" data-progress="36.6" data-status="pending">
                     <td><strong>27</strong></td>
                     <td class="player-name">Cusinho0</td>
                     <td class="power">1531%</td>
@@ -1366,7 +1768,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="28" data-name="kakashi" data-power="1486" data-points="190012" data-progress="21.1" data-status="pending">
                     <td><strong>28</strong></td>
                     <td class="player-name">Kakashi</td>
                     <td class="power">1486%</td>
@@ -1382,7 +1784,7 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr>
+                <tr data-rank="29" data-name="klausvr" data-power="2123" data-points="0" data-progress="0.0" data-status="dead">
                     <td><strong>29</strong></td>
                     <td class="player-name">klausvr</td>
                     <td class="power">2123%</td>
@@ -1402,5 +1804,172 @@
         </table>
     </div>
 </div>
+
+<!-- LÓGICA INTERATIVA DE FILTROS E ORDENAÇÃO (DESKTOP + MOBILE) -->
+<script>
+    (function () {
+        const searchInput = document.getElementById('playerSearchInput');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        const sortSelect = document.getElementById('sortSelect');
+        const statusPills = document.querySelectorAll('#statusPills .filter-pill');
+        const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+        const emptyResetBtn = document.getElementById('emptyResetBtn');
+        const visibleCountEl = document.getElementById('visibleCount');
+        const tableContainer = document.getElementById('tableContainer');
+        const emptyState = document.getElementById('emptyState');
+        const tbody = document.getElementById('playersTableBody');
+
+        // Captura todas as linhas originais dos 29 jogadores
+        const allRows = Array.from(tbody.querySelectorAll('tr'));
+
+        let activeStatus = 'all';
+        let searchQuery = '';
+        let currentSort = 'points-desc';
+
+        // Normaliza acentos para facilitar busca no mobile
+        function normalizeText(str) {
+            return str
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .trim();
+        }
+
+        // Atualiza contadores dinâmicos das pílulas de status
+        function updateStatusCounts() {
+            let completed = 0;
+            let pending = 0;
+            let dead = 0;
+
+            allRows.forEach(row => {
+                const st = row.dataset.status;
+                if (st === 'completed') completed++;
+                else if (st === 'pending') pending++;
+                else if (st === 'dead') dead++;
+            });
+
+            document.getElementById('countAll').textContent = allRows.length;
+            document.getElementById('countCompleted').textContent = completed;
+            document.getElementById('countPending').textContent = pending;
+            document.getElementById('countDead').textContent = dead;
+        }
+
+        // Aplica ordenação, filtro de status e busca por nome
+        function applyFiltersAndSort() {
+            const normalizedQuery = normalizeText(searchQuery);
+
+            // 1. Ordenação
+            const sortedRows = [...allRows].sort((a, b) => {
+                if (currentSort === 'points-desc') {
+                    return Number(b.dataset.points) - Number(a.dataset.points);
+                }
+                if (currentSort === 'progress-desc') {
+                    return Number(b.dataset.progress) - Number(a.dataset.progress);
+                }
+                if (currentSort === 'power-desc') {
+                    return Number(b.dataset.power) - Number(a.dataset.power);
+                }
+                if (currentSort === 'progress-asc') {
+                    return Number(a.dataset.progress) - Number(b.dataset.progress);
+                }
+                return Number(a.dataset.rank) - Number(b.dataset.rank);
+            });
+
+            // Reanexa linhas na ordem selecionada e filtra visibilidade
+            let visibleCount = 0;
+            const fragment = document.createDocumentFragment();
+
+            sortedRows.forEach(row => {
+                const rowStatus = row.dataset.status;
+                const rowName = normalizeText(row.dataset.name);
+
+                const matchesStatus = activeStatus === 'all' || rowStatus === activeStatus;
+                const matchesSearch = !normalizedQuery || rowName.includes(normalizedQuery);
+
+                if (matchesStatus && matchesSearch) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+
+                fragment.appendChild(row);
+            });
+
+            tbody.appendChild(fragment);
+
+            // Atualiza contadores e botões auxiliares
+            visibleCountEl.textContent = visibleCount;
+            clearSearchBtn.classList.toggle('visible', searchQuery.length > 0);
+
+            const hasActiveFilter = activeStatus !== 'all' || searchQuery.length > 0 || currentSort !== 'points-desc';
+            resetFiltersBtn.classList.toggle('visible', hasActiveFilter);
+
+            // Alterna estado vazio caso nenhum jogador corresponda
+            if (visibleCount === 0) {
+                tableContainer.style.display = 'none';
+                emptyState.classList.add('visible');
+            } else {
+                tableContainer.style.display = '';
+                emptyState.classList.remove('visible');
+            }
+        }
+
+        // Eventos de busca instantânea
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            applyFiltersAndSort();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            searchInput.focus();
+            applyFiltersAndSort();
+        });
+
+        // Eventos das pílulas de filtro por status
+        statusPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                statusPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeStatus = pill.dataset.status;
+
+                // Centraliza suavemente a pílula tocada no mobile
+                pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+
+                applyFiltersAndSort();
+            });
+        });
+
+        // Evento de ordenação
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            applyFiltersAndSort();
+        });
+
+        // Resetar todos os filtros
+        function resetAllFilters() {
+            searchInput.value = '';
+            searchQuery = '';
+            activeStatus = 'all';
+            currentSort = 'points-desc';
+            sortSelect.value = 'points-desc';
+
+            statusPills.forEach(p => {
+                p.classList.toggle('active', p.dataset.status === 'all');
+            });
+
+            applyFiltersAndSort();
+        }
+
+        resetFiltersBtn.addEventListener('click', resetAllFilters);
+        emptyResetBtn.addEventListener('click', resetAllFilters);
+
+        // Inicialização
+        updateStatusCounts();
+        applyFiltersAndSort();
+    })();
+</script>
 </body>
 </html>
