@@ -292,7 +292,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-bottom: 30px;
+            margin-bottom: 34px;
             align-items: stretch;
         }
 
@@ -376,62 +376,52 @@
             margin-top: 6px;
         }
 
-        /* BARRA DE FILTROS E ORDENAÇÃO (DESKTOP + MOBILE TOUCH-FRIENDLY) */
-        .filters-panel {
-            background: linear-gradient(180deg, rgba(20, 14, 34, 0.94) 0%, rgba(12, 10, 19, 0.98) 100%);
-            border: 1px solid rgba(168, 85, 247, 0.42);
+        /* BARRA DE FILTROS INTERATIVA (DESKTOP & MOBILE) */
+        .filters-bar {
+            background: linear-gradient(180deg, rgba(20, 14, 34, 0.95) 0%, rgba(12, 11, 20, 0.98) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.38);
             border-radius: 18px;
             padding: 18px 20px;
             margin-bottom: 24px;
-            box-shadow: 0 0 24px rgba(126, 34, 206, 0.16), 0 12px 28px rgba(0, 0, 0, 0.65);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
             display: flex;
             flex-direction: column;
             gap: 14px;
-            text-align: left;
         }
 
         .filters-top-row {
-            display: grid;
-            grid-template-columns: 1fr auto;
+            display: flex;
             gap: 12px;
             align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .search-box {
             position: relative;
-            width: 100%;
+            flex: 1;
+            min-width: 240px;
         }
 
-        .search-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #c084fc;
-            font-size: 15px;
-            pointer-events: none;
-        }
-
-        .search-input {
+        .search-box input {
             width: 100%;
-            background: #07060c;
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            border-radius: 12px;
-            padding: 12px 38px 12px 40px;
+            background: #07070c;
+            border: 1px solid rgba(168, 85, 247, 0.45);
             color: #ffffff;
+            padding: 11px 38px 11px 16px;
+            border-radius: 12px;
             font-size: 14px;
-            font-weight: 500;
             outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .search-input::placeholder {
+        .search-box input::placeholder {
             color: #71717a;
         }
 
-        .search-input:focus {
+        .search-box input:focus {
             border-color: #4ade80;
-            box-shadow: 0 0 14px rgba(74, 222, 128, 0.25);
+            box-shadow: 0 0 14px rgba(74, 222, 128, 0.22);
         }
 
         .clear-search-btn {
@@ -442,33 +432,27 @@
             background: rgba(168, 85, 247, 0.2);
             border: none;
             color: #e4e4e7;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             border-radius: 50%;
-            font-size: 12px;
-            font-weight: 800;
             cursor: pointer;
+            font-size: 12px;
             display: none;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s ease;
         }
 
         .clear-search-btn.visible {
             display: flex;
         }
 
-        .clear-search-btn:hover {
-            background: rgba(239, 68, 68, 0.45);
-        }
-
-        .sort-wrapper {
+        .sort-box {
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .sort-label {
+        .sort-box label {
             font-size: 12px;
             font-weight: 700;
             color: #a1a1aa;
@@ -477,46 +461,37 @@
             white-space: nowrap;
         }
 
-        .sort-select {
-            background: #07060c;
+        .sort-box select {
+            background: #07070c;
             border: 1px solid rgba(168, 85, 247, 0.45);
-            border-radius: 12px;
-            padding: 12px 34px 12px 14px;
             color: #e4e4e7;
+            padding: 10px 14px;
+            border-radius: 12px;
             font-size: 13.5px;
-            font-weight: 700;
+            font-weight: 600;
             outline: none;
             cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c084fc' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .sort-select:focus {
-            border-color: #4ade80;
-            box-shadow: 0 0 12px rgba(74, 222, 128, 0.22);
+        .sort-box select:focus {
+            border-color: #c084fc;
         }
 
         .filters-bottom-row {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             gap: 12px;
             flex-wrap: wrap;
         }
 
-        /* Pílulas de Status com Scroll Horizontal Touch-Friendly no Mobile */
         .status-pills {
             display: flex;
-            align-items: center;
             gap: 8px;
             overflow-x: auto;
+            padding-bottom: 4px;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            padding-bottom: 2px;
         }
 
         .status-pills::-webkit-scrollbar {
@@ -527,155 +502,62 @@
             background: #09080f;
             border: 1px solid rgba(168, 85, 247, 0.3);
             color: #d4d4d8;
-            padding: 9px 14px;
+            padding: 8px 14px;
             border-radius: 999px;
             font-size: 12.5px;
             font-weight: 700;
             cursor: pointer;
             white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             transition: all 0.2s ease;
             user-select: none;
         }
 
         .filter-pill:hover {
-            border-color: #a855f7;
-            background: rgba(168, 85, 247, 0.14);
-        }
-
-        .filter-pill .pill-count {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 2px 7px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 800;
-            color: #a1a1aa;
+            border-color: #c084fc;
+            color: #ffffff;
         }
 
         .filter-pill.active {
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.28), rgba(74, 222, 128, 0.2));
+            background: linear-gradient(135deg, #7e22ce, #a855f7);
             border-color: #4ade80;
             color: #ffffff;
-            box-shadow: 0 0 14px rgba(74, 222, 128, 0.25);
+            box-shadow: 0 0 14px rgba(168, 85, 247, 0.45);
         }
 
-        .filter-pill.active .pill-count {
-            background: #4ade80;
-            color: #050508;
-        }
-
-        .filter-pill[data-status="completed"].active {
-            border-color: #4ade80;
-            background: rgba(34, 197, 94, 0.22);
-        }
-
-        .filter-pill[data-status="pending"].active {
-            border-color: #c084fc;
-            background: rgba(168, 85, 247, 0.26);
-        }
-
-        .filter-pill[data-status="pending"].active .pill-count {
-            background: #c084fc;
-            color: #050508;
-        }
-
-        .filter-pill[data-status="dead"].active {
-            border-color: #f43f5e;
-            background: rgba(244, 63, 94, 0.22);
-        }
-
-        .filter-pill[data-status="dead"].active .pill-count {
-            background: #f43f5e;
-            color: #ffffff;
-        }
-
-        .results-meta {
+        .filter-summary {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-left: auto;
-        }
-
-        .results-counter {
+            gap: 12px;
             font-size: 12.5px;
             color: #a1a1aa;
             font-weight: 600;
-        }
-
-        .results-counter strong {
-            color: #4ade80;
-            font-weight: 800;
         }
 
         .reset-filters-btn {
             background: rgba(244, 63, 94, 0.14);
             border: 1px solid rgba(244, 63, 94, 0.45);
             color: #fda4af;
-            padding: 7px 12px;
-            border-radius: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 12px;
             font-weight: 700;
             cursor: pointer;
             display: none;
-            align-items: center;
-            gap: 5px;
-            transition: all 0.2s ease;
         }
 
         .reset-filters-btn.visible {
-            display: inline-flex;
+            display: inline-block;
         }
 
-        .reset-filters-btn:hover {
-            background: rgba(244, 63, 94, 0.28);
-            color: #ffffff;
-        }
-
-        /* MENSAGEM DE NENHUM RESULTADO */
         .empty-state {
             display: none;
             background: #0f0f14;
             border: 1px dashed rgba(168, 85, 247, 0.45);
-            border-radius: 18px;
-            padding: 36px 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .empty-state.visible {
-            display: block;
-        }
-
-        .empty-state-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .empty-state-title {
-            font-size: 17px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-
-        .empty-state-desc {
-            font-size: 13.5px;
+            border-radius: 16px;
+            padding: 32px 20px;
             color: #a1a1aa;
-            margin-bottom: 16px;
-        }
-
-        .empty-state-btn {
-            background: linear-gradient(135deg, #7e22ce, #a855f7);
-            border: 1px solid #c084fc;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
+            font-size: 15px;
+            margin-bottom: 20px;
         }
 
         /* TABELA DE RESULTADOS */
@@ -926,50 +808,36 @@
                 font-size: 19px;
             }
 
-            /* Filtros responsivos no mobile */
-            .filters-panel {
-                padding: 14px 12px;
+            /* Filtros Mobile */
+            .filters-bar {
+                padding: 14px;
                 border-radius: 16px;
-                gap: 12px;
+                margin-bottom: 18px;
             }
 
-            .filters-top-row {
-                grid-template-columns: 1fr;
-                gap: 10px;
+            .search-box {
+                width: 100%;
+                min-width: 100%;
             }
 
-            .search-input {
-                font-size: 16px; /* Evita zoom automático no iOS */
-                padding: 11px 36px 11px 38px;
+            .search-box input {
+                font-size: 16px;
+                padding: 12px 38px 12px 14px;
             }
 
-            .sort-wrapper {
+            .sort-box {
                 width: 100%;
                 justify-content: space-between;
             }
 
-            .sort-select {
+            .sort-box select {
                 flex: 1;
                 font-size: 14px;
-                padding: 11px 32px 11px 12px;
+                padding: 10px 12px;
             }
 
             .status-pills {
                 width: 100%;
-                padding-bottom: 4px;
-            }
-
-            .filter-pill {
-                padding: 9px 13px;
-                font-size: 12px;
-            }
-
-            .results-meta {
-                width: 100%;
-                justify-content: space-between;
-                margin-left: 0;
-                padding-top: 4px;
-                border-top: 1px solid rgba(168, 85, 247, 0.16);
             }
 
             /* Transformação da tabela em cards responsivos sem scroll horizontal */
@@ -1204,7 +1072,7 @@
             </svg>
         </div>
 
-        <div class="status-badge"><span class="dot">●</span> Sincronização Concluída (14/11/26 23:53)</div>
+        <div class="status-badge"><span class="dot">●</span> Sincronização Concluída (15/11/26 21:54)</div>
 
         <div class="brand-zone">
             <h1>100AGROTÓXICOS</h1>
@@ -1216,12 +1084,12 @@
             <div class="progress-header-info">
                 <div class="progress-title">🎯 Progresso da Meta Coletiva Semanal</div>
                 <div class="progress-stats">
-                    Pontuação: <strong class="score-val">32.783.551</strong> / Alvo: <strong class="target-val">29.000.000</strong>
+                    Pontuação: <strong class="score-val">33.446.900</strong> / Alvo: <strong class="target-val">29.100.000</strong>
                 </div>
             </div>
             <div class="progress-track">
                 <div class="progress-fill" style="width: 100.0%;"></div>
-                <div class="progress-percentage-label">113.0% CONCLUÍDO</div>
+                <div class="progress-percentage-label">114.9% CONCLUÍDO</div>
             </div>
         </div>
 
@@ -1229,11 +1097,11 @@
         <div class="quick-metrics">
             <div class="metric-item">
                 <span class="metric-label">Pontuação Total Semanal</span>
-                <span class="metric-value val-toxic">32.783.551</span>
+                <span class="metric-value val-toxic">33.446.900</span>
             </div>
             <div class="metric-item">
                 <span class="metric-label">Meta Global Estimada</span>
-                <span class="metric-value val-purple">29.000.000</span>
+                <span class="metric-value val-purple">29.100.000</span>
             </div>
             <div class="metric-item">
                 <span class="metric-label">Membros Cadastrados</span>
@@ -1246,79 +1114,58 @@
     <div class="podium-section">
         <div class="podium-card silver">
             <div class="podium-rank">🥈 2º Lugar Semanal</div>
+            <div class="podium-name">ozehgota <span class="badge-leader">Líder</span></div>
+            <div class="podium-score">1.568.502 pts</div>
+            <div class="podium-sub">Meta: 1.500.000 (104.6%)</div>
+        </div>
+        <div class="podium-card gold">
+            <div class="podium-rank">🥇 TOP 1 Semanal</div>
+            <div class="podium-name">Turcocps</div>
+            <div class="podium-score">1.623.717 pts</div>
+            <div class="podium-sub">Meta: 1.500.000 (108.2%)</div>
+        </div>
+        <div class="podium-card bronze">
+            <div class="podium-rank">🥉 3º Lugar Semanal</div>
             <div class="podium-name">Ippo</div>
             <div class="podium-score">1.507.591 pts</div>
             <div class="podium-sub">Meta: 1.300.000 (116.0%)</div>
         </div>
-        <div class="podium-card gold">
-            <div class="podium-rank">🥇 TOP 1 Semanal</div>
-            <div class="podium-name">ozehgota <span class="badge-leader">Líder</span></div>
-            <div class="podium-score">1.541.939 pts</div>
-            <div class="podium-sub">Meta: 1.500.000 (102.8%)</div>
-        </div>
-        <div class="podium-card bronze">
-            <div class="podium-rank">🥉 3º Lugar Semanal</div>
-            <div class="podium-name">Naldo <span class="badge-tenente">Tenente</span></div>
-            <div class="podium-score">1.497.546 pts</div>
-            <div class="podium-sub">Meta: 1.300.000 (115.2%)</div>
-        </div>
     </div>
 
-    <!-- BARRA DE FILTROS E ORDENAÇÃO (DESKTOP + MOBILE) -->
-    <div class="filters-panel" role="region" aria-label="Filtros e Ordenação de Jogadores">
+    <!-- BARRA DE FILTROS E ORDENAÇÃO -->
+    <div class="filters-bar" aria-label="Filtros do Painel">
         <div class="filters-top-row">
             <div class="search-box">
-                <span class="search-icon">🔍</span>
-                <input
-                    type="text"
-                    id="playerSearchInput"
-                    class="search-input"
-                    placeholder="Buscar jogador por nome ou patente (ex: Naldo, Líder)..."
-                    autocomplete="off"
-                />
-                <button type="button" id="clearSearchBtn" class="clear-search-btn" title="Limpar busca" aria-label="Limpar busca">✕</button>
+                <input type="text" id="searchInput" placeholder="🔍 Buscar jogador ou cargo (ex: Líder, Tenente)..." autocomplete="off">
+                <button type="button" id="clearSearchBtn" class="clear-search-btn" title="Limpar busca">✕</button>
             </div>
-
-            <div class="sort-wrapper">
-                <label for="sortSelect" class="sort-label">Ordenar:</label>
-                <select id="sortSelect" class="sort-select">
-                    <option value="points-desc">Pontos Semanais (Maior)</option>
-                    <option value="progress-desc">Progresso % (Maior)</option>
-                    <option value="power-desc">Poder % (Maior)</option>
-                    <option value="progress-asc">Menor Progresso (Atenção)</option>
+            <div class="sort-box">
+                <label for="sortSelect">Ordenar:</label>
+                <select id="sortSelect">
+                    <option value="rank-asc">Pontos Semanais (Maior ⬇)</option>
+                    <option value="pct-desc">Progresso % (Maior ⬇)</option>
+                    <option value="pct-asc">Menor Progresso (Falta Meta ⬆)</option>
+                    <option value="power-desc">Poder % (Maior ⬇)</option>
                 </select>
             </div>
         </div>
 
         <div class="filters-bottom-row">
-            <div class="status-pills" id="statusPills" role="tablist" aria-label="Filtrar por status">
-                <button type="button" class="filter-pill active" data-status="all">
-                    Todos <span class="pill-count" id="countAll">29</span>
-                </button>
-                <button type="button" class="filter-pill" data-status="completed">
-                    ⚡ Meta Batida <span class="pill-count" id="countCompleted">25</span>
-                </button>
-                <button type="button" class="filter-pill" data-status="pending">
-                    ⏳ Em Andamento <span class="pill-count" id="countPending">4</span>
-                </button>
-                <button type="button" class="filter-pill" data-status="dead">
-                    💀 Inativo <span class="pill-count" id="countDead">0</span>
-                </button>
+            <div class="status-pills" role="group" aria-label="Filtrar por status">
+                <button type="button" class="filter-pill active" data-status="all">Todos (<span id="countAll">29</span>)</button>
+                <button type="button" class="filter-pill" data-status="completed">⚡ Meta Batida (<span id="countCompleted">26</span>)</button>
+                <button type="button" class="filter-pill" data-status="pending">⏳ Em Andamento (<span id="countPending">3</span>)</button>
+                <button type="button" class="filter-pill" data-status="dead">💀 Inativo (<span id="countDead">0</span>)</button>
             </div>
-
-            <div class="results-meta">
-                <span class="results-counter">Exibindo <strong id="visibleCount">29</strong> de <strong>29</strong> jogadores</span>
-                <button type="button" id="resetFiltersBtn" class="reset-filters-btn">↺ Limpar Filtros</button>
+            <div class="filter-summary">
+                <span id="visibleCountLabel">Exibindo 29 de 29 membros</span>
+                <button type="button" id="resetFiltersBtn" class="reset-filters-btn">Limpar Filtros</button>
             </div>
         </div>
     </div>
 
-    <!-- ESTADO VAZIO QUANDO NENHUM JOGADOR CORRESPONDE AO FILTRO -->
     <div id="emptyState" class="empty-state">
-        <div class="empty-state-icon">🧪</div>
-        <div class="empty-state-title">Nenhum jogador encontrado</div>
-        <div class="empty-state-desc">Não encontramos membros correspondentes ao filtro ou termo buscado.</div>
-        <button type="button" id="emptyResetBtn" class="empty-state-btn">Mostrar Todos os Jogadores</button>
+        Nenhum jogador encontrado com os filtros atuais.
     </div>
 
     <!-- TABELA DE RESULTADOS (29 JOGADORES) -->
@@ -1336,26 +1183,42 @@
                 </tr>
             </thead>
             <tbody id="playersTableBody">
-                <tr class="rank-gold" data-rank="1" data-name="ozehgota lider" data-power="2572" data-points="1541939" data-progress="102.8" data-status="completed">
+                <tr class="rank-gold" data-rank="1" data-name="Turcocps" data-power="2542" data-score="1623717" data-target="1500000" data-pct="108.2" data-status="completed">
                     <td><strong>1</strong></td>
-                    <td class="player-name">🥇 ozehgota <span class="badge-leader">Líder</span></td>
-                    <td class="power">2572%</td>
-                    <td class="weekly-highlight">1.541.939</td>
+                    <td class="player-name">🥇 Turcocps</td>
+                    <td class="power">2542%</td>
+                    <td class="weekly-highlight">1.623.717</td>
                     <td class="target-col">1.500.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
                                 <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
                             </div>
-                            <span class="pct-text">102.8%</span>
+                            <span class="pct-text">108.2%</span>
                         </div>
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr class="rank-silver" data-rank="2" data-name="ippo" data-power="2250" data-points="1507591" data-progress="116.0" data-status="completed">
+                <tr class="rank-silver" data-rank="2" data-name="ozehgota Líder" data-power="2572" data-score="1568502" data-target="1500000" data-pct="104.6" data-status="completed">
                     <td><strong>2</strong></td>
-                    <td class="player-name">🥈 Ippo</td>
-                    <td class="power">2250%</td>
+                    <td class="player-name">🥈 ozehgota <span class="badge-leader">Líder</span></td>
+                    <td class="power">2572%</td>
+                    <td class="weekly-highlight">1.568.502</td>
+                    <td class="target-col">1.500.000</td>
+                    <td>
+                        <div class="player-progress-wrapper">
+                            <div class="player-progress-container">
+                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
+                            </div>
+                            <span class="pct-text">104.6%</span>
+                        </div>
+                    </td>
+                    <td><span class="status-completed">⚡ Meta Batida</span></td>
+                </tr>
+                <tr class="rank-bronze" data-rank="3" data-name="Ippo" data-power="2257" data-score="1507591" data-target="1300000" data-pct="116.0" data-status="completed">
+                    <td><strong>3</strong></td>
+                    <td class="player-name">🥉 Ippo</td>
+                    <td class="power">2257%</td>
                     <td class="weekly-highlight">1.507.591</td>
                     <td class="target-col">1.300.000</td>
                     <td>
@@ -1368,9 +1231,9 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr class="rank-bronze" data-rank="3" data-name="naldo tenente" data-power="2383" data-points="1497546" data-progress="115.2" data-status="completed">
-                    <td><strong>3</strong></td>
-                    <td class="player-name">🥉 Naldo <span class="badge-tenente">Tenente</span></td>
+                <tr data-rank="4" data-name="Naldo Tenente" data-power="2383" data-score="1497546" data-target="1300000" data-pct="115.2" data-status="completed">
+                    <td><strong>4</strong></td>
+                    <td class="player-name">Naldo <span class="badge-tenente">Tenente</span></td>
                     <td class="power">2383%</td>
                     <td class="weekly-highlight">1.497.546</td>
                     <td class="target-col">1.300.000</td>
@@ -1384,24 +1247,24 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="4" data-name="turcocps" data-power="2534" data-points="1451756" data-progress="96.8" data-status="pending">
-                    <td><strong>4</strong></td>
-                    <td class="player-name">Turcocps</td>
-                    <td class="power">2534%</td>
-                    <td class="weekly-highlight">1.451.756</td>
-                    <td class="target-col">1.500.000</td>
+                <tr data-rank="5" data-name="klausvr" data-power="2134" data-score="1450147" data-target="1300000" data-pct="111.5" data-status="completed">
+                    <td><strong>5</strong></td>
+                    <td class="player-name">klausvr</td>
+                    <td class="power">2134%</td>
+                    <td class="weekly-highlight">1.450.147</td>
+                    <td class="target-col">1.300.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
-                                <div class="player-progress-bar bar-green" style="width: 96.8%;"></div>
+                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
                             </div>
-                            <span class="pct-text">96.8%</span>
+                            <span class="pct-text">111.5%</span>
                         </div>
                     </td>
-                    <td><span class="status-pending">⏳ Em Andamento</span></td>
+                    <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="5" data-name="pooch tenente" data-power="2026" data-points="1438733" data-progress="110.7" data-status="completed">
-                    <td><strong>5</strong></td>
+                <tr data-rank="6" data-name="Pooch Tenente" data-power="2026" data-score="1438733" data-target="1300000" data-pct="110.7" data-status="completed">
+                    <td><strong>6</strong></td>
                     <td class="player-name">Pooch <span class="badge-tenente">Tenente</span></td>
                     <td class="power">2026%</td>
                     <td class="weekly-highlight">1.438.733</td>
@@ -1416,26 +1279,42 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="6" data-name="klausvr" data-power="2134" data-points="1401571" data-progress="107.8" data-status="completed">
-                    <td><strong>6</strong></td>
-                    <td class="player-name">klausvr</td>
-                    <td class="power">2134%</td>
-                    <td class="weekly-highlight">1.401.571</td>
-                    <td class="target-col">1.300.000</td>
+                <tr data-rank="7" data-name="Messias" data-power="1924" data-score="1419131" data-target="1200000" data-pct="118.3" data-status="completed">
+                    <td><strong>7</strong></td>
+                    <td class="player-name">Messias</td>
+                    <td class="power">1924%</td>
+                    <td class="weekly-highlight">1.419.131</td>
+                    <td class="target-col">1.200.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
                                 <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
                             </div>
-                            <span class="pct-text">107.8%</span>
+                            <span class="pct-text">118.3%</span>
                         </div>
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="7" data-name="yubel" data-power="1899" data-points="1372047" data-progress="114.3" data-status="completed">
-                    <td><strong>7</strong></td>
+                <tr data-rank="8" data-name="KnziinFé" data-power="1905" data-score="1410268" data-target="1200000" data-pct="117.5" data-status="completed">
+                    <td><strong>8</strong></td>
+                    <td class="player-name">KnziinFé</td>
+                    <td class="power">1905%</td>
+                    <td class="weekly-highlight">1.410.268</td>
+                    <td class="target-col">1.200.000</td>
+                    <td>
+                        <div class="player-progress-wrapper">
+                            <div class="player-progress-container">
+                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
+                            </div>
+                            <span class="pct-text">117.5%</span>
+                        </div>
+                    </td>
+                    <td><span class="status-completed">⚡ Meta Batida</span></td>
+                </tr>
+                <tr data-rank="9" data-name="Yubel" data-power="1906" data-score="1372047" data-target="1200000" data-pct="114.3" data-status="completed">
+                    <td><strong>9</strong></td>
                     <td class="player-name">Yubel</td>
-                    <td class="power">1899%</td>
+                    <td class="power">1906%</td>
                     <td class="weekly-highlight">1.372.047</td>
                     <td class="target-col">1.200.000</td>
                     <td>
@@ -1448,40 +1327,24 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="8" data-name="messias" data-power="1914" data-points="1368865" data-progress="114.1" data-status="completed">
-                    <td><strong>8</strong></td>
-                    <td class="player-name">Messias</td>
-                    <td class="power">1914%</td>
-                    <td class="weekly-highlight">1.368.865</td>
-                    <td class="target-col">1.200.000</td>
-                    <td>
-                        <div class="player-progress-wrapper">
-                            <div class="player-progress-container">
-                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
-                            </div>
-                            <span class="pct-text">114.1%</span>
-                        </div>
-                    </td>
-                    <td><span class="status-completed">⚡ Meta Batida</span></td>
-                </tr>
-                <tr data-rank="9" data-name="knziinfe knziinfé" data-power="1905" data-points="1356391" data-progress="113.0" data-status="completed">
-                    <td><strong>9</strong></td>
-                    <td class="player-name">KnziinFé</td>
-                    <td class="power">1905%</td>
-                    <td class="weekly-highlight">1.356.391</td>
-                    <td class="target-col">1.200.000</td>
-                    <td>
-                        <div class="player-progress-wrapper">
-                            <div class="player-progress-container">
-                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
-                            </div>
-                            <span class="pct-text">113.0%</span>
-                        </div>
-                    </td>
-                    <td><span class="status-completed">⚡ Meta Batida</span></td>
-                </tr>
-                <tr data-rank="10" data-name="tobymeudog" data-power="2029" data-points="1327925" data-progress="102.1" data-status="completed">
+                <tr data-rank="10" data-name="CrazyDreams" data-power="1711" data-score="1331039" data-target="1000000" data-pct="133.1" data-status="completed">
                     <td><strong>10</strong></td>
+                    <td class="player-name">CrazyDreams</td>
+                    <td class="power">1711%</td>
+                    <td class="weekly-highlight">1.331.039</td>
+                    <td class="target-col">1.000.000</td>
+                    <td>
+                        <div class="player-progress-wrapper">
+                            <div class="player-progress-container">
+                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
+                            </div>
+                            <span class="pct-text">133.1%</span>
+                        </div>
+                    </td>
+                    <td><span class="status-completed">⚡ Meta Batida</span></td>
+                </tr>
+                <tr data-rank="11" data-name="Tobymeudog" data-power="2029" data-score="1327925" data-target="1300000" data-pct="102.1" data-status="completed">
+                    <td><strong>11</strong></td>
                     <td class="player-name">Tobymeudog</td>
                     <td class="power">2029%</td>
                     <td class="weekly-highlight">1.327.925</td>
@@ -1496,8 +1359,8 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="11" data-name="victor" data-power="1857" data-points="1316056" data-progress="109.7" data-status="completed">
-                    <td><strong>11</strong></td>
+                <tr data-rank="12" data-name="Victor" data-power="1857" data-score="1316056" data-target="1200000" data-pct="109.7" data-status="completed">
+                    <td><strong>12</strong></td>
                     <td class="player-name">Victor</td>
                     <td class="power">1857%</td>
                     <td class="weekly-highlight">1.316.056</td>
@@ -1512,8 +1375,8 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="12" data-name="drdallas" data-power="2053" data-points="1304594" data-progress="100.4" data-status="completed">
-                    <td><strong>12</strong></td>
+                <tr data-rank="13" data-name="DrDallas" data-power="2053" data-score="1304594" data-target="1300000" data-pct="100.4" data-status="completed">
+                    <td><strong>13</strong></td>
                     <td class="player-name">DrDallas</td>
                     <td class="power">2053%</td>
                     <td class="weekly-highlight">1.304.594</td>
@@ -1528,24 +1391,24 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="13" data-name="hiimazir" data-power="1727" data-points="1275309" data-progress="127.5" data-status="completed">
-                    <td><strong>13</strong></td>
+                <tr data-rank="14" data-name="HiimAzir" data-power="1727" data-score="1293979" data-target="1000000" data-pct="129.4" data-status="completed">
+                    <td><strong>14</strong></td>
                     <td class="player-name">HiimAzir</td>
                     <td class="power">1727%</td>
-                    <td class="weekly-highlight">1.275.309</td>
+                    <td class="weekly-highlight">1.293.979</td>
                     <td class="target-col">1.000.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
                                 <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
                             </div>
-                            <span class="pct-text">127.5%</span>
+                            <span class="pct-text">129.4%</span>
                         </div>
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="14" data-name="downrush" data-power="1795" data-points="1225349" data-progress="122.5" data-status="completed">
-                    <td><strong>14</strong></td>
+                <tr data-rank="15" data-name="DownRush" data-power="1795" data-score="1225349" data-target="1000000" data-pct="122.5" data-status="completed">
+                    <td><strong>15</strong></td>
                     <td class="player-name">DownRush</td>
                     <td class="power">1795%</td>
                     <td class="weekly-highlight">1.225.349</td>
@@ -1560,23 +1423,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="15" data-name="crazydreams" data-power="1711" data-points="1212819" data-progress="121.3" data-status="completed">
-                    <td><strong>15</strong></td>
-                    <td class="player-name">CrazyDreams</td>
-                    <td class="power">1711%</td>
-                    <td class="weekly-highlight">1.212.819</td>
-                    <td class="target-col">1.000.000</td>
-                    <td>
-                        <div class="player-progress-wrapper">
-                            <div class="player-progress-container">
-                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
-                            </div>
-                            <span class="pct-text">121.3%</span>
-                        </div>
-                    </td>
-                    <td><span class="status-completed">⚡ Meta Batida</span></td>
-                </tr>
-                <tr data-rank="16" data-name="treifors" data-power="1696" data-points="1190076" data-progress="119.0" data-status="completed">
+                <tr data-rank="16" data-name="Treifors" data-power="1696" data-score="1190076" data-target="1000000" data-pct="119.0" data-status="completed">
                     <td><strong>16</strong></td>
                     <td class="player-name">Treifors</td>
                     <td class="power">1696%</td>
@@ -1592,7 +1439,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="17" data-name="srvovo" data-power="1429" data-points="1084327" data-progress="135.5" data-status="completed">
+                <tr data-rank="17" data-name="SrVovo" data-power="1429" data-score="1084327" data-target="800000" data-pct="135.5" data-status="completed">
                     <td><strong>17</strong></td>
                     <td class="player-name">SrVovo</td>
                     <td class="power">1429%</td>
@@ -1608,10 +1455,10 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="18" data-name="ohmyg" data-power="1910" data-points="1057227" data-progress="88.1" data-status="pending">
+                <tr data-rank="18" data-name="OHMYG" data-power="1916" data-score="1057227" data-target="1200000" data-pct="88.1" data-status="pending">
                     <td><strong>18</strong></td>
                     <td class="player-name">OHMYG</td>
-                    <td class="power">1910%</td>
+                    <td class="power">1916%</td>
                     <td class="weekly-highlight">1.057.227</td>
                     <td class="target-col">1.200.000</td>
                     <td>
@@ -1624,10 +1471,10 @@
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr data-rank="19" data-name="goatcaka" data-power="1330" data-points="1057118" data-progress="151.0" data-status="completed">
+                <tr data-rank="19" data-name="GoatCaka" data-power="1337" data-score="1057118" data-target="700000" data-pct="151.0" data-status="completed">
                     <td><strong>19</strong></td>
                     <td class="player-name">GoatCaka</td>
-                    <td class="power">1330%</td>
+                    <td class="power">1337%</td>
                     <td class="weekly-highlight">1.057.118</td>
                     <td class="target-col">700.000</td>
                     <td>
@@ -1640,10 +1487,10 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="20" data-name="anulado" data-power="1572" data-points="1057044" data-progress="117.4" data-status="completed">
+                <tr data-rank="20" data-name="anulado" data-power="1578" data-score="1057044" data-target="900000" data-pct="117.4" data-status="completed">
                     <td><strong>20</strong></td>
                     <td class="player-name">anulado</td>
-                    <td class="power">1572%</td>
+                    <td class="power">1578%</td>
                     <td class="weekly-highlight">1.057.044</td>
                     <td class="target-col">900.000</td>
                     <td>
@@ -1656,7 +1503,7 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="21" data-name="raposinha" data-power="1314" data-points="1037094" data-progress="148.2" data-status="completed">
+                <tr data-rank="21" data-name="Raposinha" data-power="1314" data-score="1037094" data-target="700000" data-pct="148.2" data-status="completed">
                     <td><strong>21</strong></td>
                     <td class="player-name">Raposinha</td>
                     <td class="power">1314%</td>
@@ -1672,26 +1519,42 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="22" data-name="oddin" data-power="1527" data-points="995817" data-progress="110.6" data-status="completed">
+                <tr data-rank="22" data-name="MohamedBr" data-power="1551" data-score="1027496" data-target="900000" data-pct="114.2" data-status="completed">
                     <td><strong>22</strong></td>
-                    <td class="player-name">oddin</td>
-                    <td class="power">1527%</td>
-                    <td class="weekly-highlight">995.817</td>
+                    <td class="player-name">MohamedBr</td>
+                    <td class="power">1551%</td>
+                    <td class="weekly-highlight">1.027.496</td>
                     <td class="target-col">900.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
                                 <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
                             </div>
-                            <span class="pct-text">110.6%</span>
+                            <span class="pct-text">114.2%</span>
                         </div>
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="23" data-name="cusinho0" data-power="1536" data-points="991031" data-progress="110.1" data-status="completed">
+                <tr data-rank="23" data-name="oddin" data-power="1532" data-score="1011456" data-target="900000" data-pct="112.4" data-status="completed">
                     <td><strong>23</strong></td>
+                    <td class="player-name">oddin</td>
+                    <td class="power">1532%</td>
+                    <td class="weekly-highlight">1.011.456</td>
+                    <td class="target-col">900.000</td>
+                    <td>
+                        <div class="player-progress-wrapper">
+                            <div class="player-progress-container">
+                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
+                            </div>
+                            <span class="pct-text">112.4%</span>
+                        </div>
+                    </td>
+                    <td><span class="status-completed">⚡ Meta Batida</span></td>
+                </tr>
+                <tr data-rank="24" data-name="Cusinho0" data-power="1543" data-score="991031" data-target="900000" data-pct="110.1" data-status="completed">
+                    <td><strong>24</strong></td>
                     <td class="player-name">Cusinho0</td>
-                    <td class="power">1536%</td>
+                    <td class="power">1543%</td>
                     <td class="weekly-highlight">991.031</td>
                     <td class="target-col">900.000</td>
                     <td>
@@ -1704,39 +1567,23 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="24" data-name="mohamedbr" data-power="1538" data-points="915699" data-progress="101.7" data-status="completed">
-                    <td><strong>24</strong></td>
-                    <td class="player-name">MohamedBr</td>
-                    <td class="power">1538%</td>
-                    <td class="weekly-highlight">915.699</td>
-                    <td class="target-col">900.000</td>
-                    <td>
-                        <div class="player-progress-wrapper">
-                            <div class="player-progress-container">
-                                <div class="player-progress-bar bar-purple-toxic" style="width: 100.0%;"></div>
-                            </div>
-                            <span class="pct-text">101.7%</span>
-                        </div>
-                    </td>
-                    <td><span class="status-completed">⚡ Meta Batida</span></td>
-                </tr>
-                <tr data-rank="25" data-name="pucchbr" data-power="1506" data-points="709190" data-progress="78.8" data-status="pending">
+                <tr data-rank="25" data-name="PucchBR" data-power="1509" data-score="756970" data-target="900000" data-pct="84.1" data-status="pending">
                     <td><strong>25</strong></td>
                     <td class="player-name">PucchBR</td>
-                    <td class="power">1506%</td>
-                    <td class="weekly-highlight">709.190</td>
+                    <td class="power">1509%</td>
+                    <td class="weekly-highlight">756.970</td>
                     <td class="target-col">900.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
-                                <div class="player-progress-bar bar-yellow" style="width: 78.8%;"></div>
+                                <div class="player-progress-bar bar-green" style="width: 84.1%;"></div>
                             </div>
-                            <span class="pct-text">78.8%</span>
+                            <span class="pct-text">84.1%</span>
                         </div>
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr data-rank="26" data-name="thexgamer" data-power="1298" data-points="665119" data-progress="133.0" data-status="completed">
+                <tr data-rank="26" data-name="THEXGAMER" data-power="1298" data-score="665119" data-target="500000" data-pct="133.0" data-status="completed">
                     <td><strong>26</strong></td>
                     <td class="player-name">THEXGAMER</td>
                     <td class="power">1298%</td>
@@ -1752,10 +1599,10 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="27" data-name="vintequatrokc" data-power="1054" data-points="569776" data-progress="142.4" data-status="completed">
+                <tr data-rank="27" data-name="VinteQuatroKC" data-power="1062" data-score="569776" data-target="400000" data-pct="142.4" data-status="completed">
                     <td><strong>27</strong></td>
                     <td class="player-name">VinteQuatroKC</td>
-                    <td class="power">1054%</td>
+                    <td class="power">1062%</td>
                     <td class="weekly-highlight">569.776</td>
                     <td class="target-col">400.000</td>
                     <td>
@@ -1768,23 +1615,23 @@
                     </td>
                     <td><span class="status-completed">⚡ Meta Batida</span></td>
                 </tr>
-                <tr data-rank="28" data-name="kakashi" data-power="1494" data-points="453239" data-progress="56.7" data-status="pending">
+                <tr data-rank="28" data-name="Kakashi" data-power="1501" data-score="453239" data-target="900000" data-pct="50.4" data-status="pending">
                     <td><strong>28</strong></td>
                     <td class="player-name">Kakashi</td>
-                    <td class="power">1494%</td>
+                    <td class="power">1501%</td>
                     <td class="weekly-highlight">453.239</td>
-                    <td class="target-col">800.000</td>
+                    <td class="target-col">900.000</td>
                     <td>
                         <div class="player-progress-wrapper">
                             <div class="player-progress-container">
-                                <div class="player-progress-bar bar-yellow" style="width: 56.7%;"></div>
+                                <div class="player-progress-bar bar-yellow" style="width: 50.4%;"></div>
                             </div>
-                            <span class="pct-text">56.7%</span>
+                            <span class="pct-text">50.4%</span>
                         </div>
                     </td>
                     <td><span class="status-pending">⏳ Em Andamento</span></td>
                 </tr>
-                <tr data-rank="29" data-name="warriorjr" data-power="822" data-points="402303" data-progress="100.6" data-status="completed">
+                <tr data-rank="29" data-name="WarriorJR" data-power="822" data-score="402303" data-target="400000" data-pct="100.6" data-status="completed">
                     <td><strong>29</strong></td>
                     <td class="player-name">WarriorJR</td>
                     <td class="power">822%</td>
@@ -1805,168 +1652,121 @@
     </div>
 </div>
 
-<!-- LÓGICA INTERATIVA DE FILTROS E ORDENAÇÃO (DESKTOP + MOBILE) -->
+<!-- Script de Filtros e Ordenação Interativos -->
 <script>
     (function () {
-        const searchInput = document.getElementById('playerSearchInput');
+        const searchInput = document.getElementById('searchInput');
         const clearSearchBtn = document.getElementById('clearSearchBtn');
         const sortSelect = document.getElementById('sortSelect');
-        const statusPills = document.querySelectorAll('#statusPills .filter-pill');
+        const statusPills = document.querySelectorAll('.filter-pill');
         const resetFiltersBtn = document.getElementById('resetFiltersBtn');
-        const emptyResetBtn = document.getElementById('emptyResetBtn');
-        const visibleCountEl = document.getElementById('visibleCount');
-        const tableContainer = document.getElementById('tableContainer');
+        const visibleCountLabel = document.getElementById('visibleCountLabel');
         const emptyState = document.getElementById('emptyState');
+        const tableContainer = document.getElementById('tableContainer');
         const tbody = document.getElementById('playersTableBody');
+        const rows = Array.from(tbody.querySelectorAll('tr'));
 
-        // Captura todas as linhas originais dos 29 jogadores
-        const allRows = Array.from(tbody.querySelectorAll('tr'));
+        let currentStatus = 'all';
 
-        let activeStatus = 'all';
-        let searchQuery = '';
-        let currentSort = 'points-desc';
-
-        // Normaliza acentos para facilitar busca no mobile
-        function normalizeText(str) {
-            return str
+        // Remove acentos para facilitar a busca
+        function normalizeText(text) {
+            return text
                 .toLowerCase()
                 .normalize('NFD')
-                .replace(/[\u0300-\u036f]/g, '')
-                .trim();
+                .replace(/[\u0300-\u036f]/g, '');
         }
 
-        // Atualiza contadores dinâmicos das pílulas de status
+        // Atualiza os contadores dinâmicos das pílulas
         function updateStatusCounts() {
-            let completed = 0;
-            let pending = 0;
-            let dead = 0;
-
-            allRows.forEach(row => {
+            const counts = { all: rows.length, completed: 0, pending: 0, dead: 0 };
+            rows.forEach(row => {
                 const st = row.dataset.status;
-                if (st === 'completed') completed++;
-                else if (st === 'pending') pending++;
-                else if (st === 'dead') dead++;
+                if (counts[st] !== undefined) counts[st]++;
             });
-
-            document.getElementById('countAll').textContent = allRows.length;
-            document.getElementById('countCompleted').textContent = completed;
-            document.getElementById('countPending').textContent = pending;
-            document.getElementById('countDead').textContent = dead;
+            document.getElementById('countAll').textContent = counts.all;
+            document.getElementById('countCompleted').textContent = counts.completed;
+            document.getElementById('countPending').textContent = counts.pending;
+            document.getElementById('countDead').textContent = counts.dead;
         }
 
-        // Aplica ordenação, filtro de status e busca por nome
+        // Aplica filtros de texto, status e ordenação
         function applyFiltersAndSort() {
-            const normalizedQuery = normalizeText(searchQuery);
+            const query = normalizeText(searchInput.value.trim());
+            const sortMode = sortSelect.value;
 
-            // 1. Ordenação
-            const sortedRows = [...allRows].sort((a, b) => {
-                if (currentSort === 'points-desc') {
-                    return Number(b.dataset.points) - Number(a.dataset.points);
+            clearSearchBtn.classList.toggle('visible', query.length > 0);
+
+            const sortedRows = [...rows].sort((a, b) => {
+                if (sortMode === 'rank-asc') {
+                    return Number(a.dataset.rank) - Number(b.dataset.rank);
                 }
-                if (currentSort === 'progress-desc') {
-                    return Number(b.dataset.progress) - Number(a.dataset.progress);
+                if (sortMode === 'pct-desc') {
+                    return Number(b.dataset.pct) - Number(a.dataset.pct);
                 }
-                if (currentSort === 'power-desc') {
+                if (sortMode === 'pct-asc') {
+                    return Number(a.dataset.pct) - Number(b.dataset.pct);
+                }
+                if (sortMode === 'power-desc') {
                     return Number(b.dataset.power) - Number(a.dataset.power);
                 }
-                if (currentSort === 'progress-asc') {
-                    return Number(a.dataset.progress) - Number(b.dataset.progress);
-                }
-                return Number(a.dataset.rank) - Number(b.dataset.rank);
+                return 0;
             });
 
-            // Reanexa linhas na ordem selecionada e filtra visibilidade
             let visibleCount = 0;
-            const fragment = document.createDocumentFragment();
 
             sortedRows.forEach(row => {
-                const rowStatus = row.dataset.status;
-                const rowName = normalizeText(row.dataset.name);
+                const nameText = normalizeText(row.dataset.name);
+                const status = row.dataset.status;
 
-                const matchesStatus = activeStatus === 'all' || rowStatus === activeStatus;
-                const matchesSearch = !normalizedQuery || rowName.includes(normalizedQuery);
+                const matchesQuery = !query || nameText.includes(query);
+                const matchesStatus = currentStatus === 'all' || status === currentStatus;
 
-                if (matchesStatus && matchesSearch) {
+                if (matchesQuery && matchesStatus) {
                     row.style.display = '';
                     visibleCount++;
                 } else {
                     row.style.display = 'none';
                 }
 
-                fragment.appendChild(row);
+                tbody.appendChild(row);
             });
 
-            tbody.appendChild(fragment);
+            visibleCountLabel.textContent = `Exibindo ${visibleCount} de ${rows.length} membros`;
 
-            // Atualiza contadores e botões auxiliares
-            visibleCountEl.textContent = visibleCount;
-            clearSearchBtn.classList.toggle('visible', searchQuery.length > 0);
-
-            const hasActiveFilter = activeStatus !== 'all' || searchQuery.length > 0 || currentSort !== 'points-desc';
+            const hasActiveFilter = query.length > 0 || currentStatus !== 'all' || sortMode !== 'rank-asc';
             resetFiltersBtn.classList.toggle('visible', hasActiveFilter);
 
-            // Alterna estado vazio caso nenhum jogador corresponda
-            if (visibleCount === 0) {
-                tableContainer.style.display = 'none';
-                emptyState.classList.add('visible');
-            } else {
-                tableContainer.style.display = '';
-                emptyState.classList.remove('visible');
-            }
+            emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+            tableContainer.style.display = visibleCount === 0 ? 'none' : '';
         }
 
-        // Eventos de busca instantânea
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value;
-            applyFiltersAndSort();
-        });
+        searchInput.addEventListener('input', applyFiltersAndSort);
 
         clearSearchBtn.addEventListener('click', () => {
             searchInput.value = '';
-            searchQuery = '';
-            searchInput.focus();
             applyFiltersAndSort();
+            searchInput.focus();
         });
 
-        // Eventos das pílulas de filtro por status
+        sortSelect.addEventListener('change', applyFiltersAndSort);
+
         statusPills.forEach(pill => {
             pill.addEventListener('click', () => {
                 statusPills.forEach(p => p.classList.remove('active'));
                 pill.classList.add('active');
-                activeStatus = pill.dataset.status;
-
-                // Centraliza suavemente a pílula tocada no mobile
-                pill.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-
+                currentStatus = pill.dataset.status;
                 applyFiltersAndSort();
             });
         });
 
-        // Evento de ordenação
-        sortSelect.addEventListener('change', (e) => {
-            currentSort = e.target.value;
+        resetFiltersBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            currentStatus = 'all';
+            sortSelect.value = 'rank-asc';
+            statusPills.forEach(p => p.classList.toggle('active', p.dataset.status === 'all'));
             applyFiltersAndSort();
         });
 
-        // Resetar todos os filtros
-        function resetAllFilters() {
-            searchInput.value = '';
-            searchQuery = '';
-            activeStatus = 'all';
-            currentSort = 'points-desc';
-            sortSelect.value = 'points-desc';
-
-            statusPills.forEach(p => {
-                p.classList.toggle('active', p.dataset.status === 'all');
-            });
-
-            applyFiltersAndSort();
-        }
-
-        resetFiltersBtn.addEventListener('click', resetAllFilters);
-        emptyResetBtn.addEventListener('click', resetAllFilters);
-
-        // Inicialização
         updateStatusCounts();
         applyFiltersAndSort();
     })();
